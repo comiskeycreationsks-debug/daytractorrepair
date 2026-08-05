@@ -129,6 +129,10 @@ header{
   background:var(--wheat);
   border-bottom:1px solid var(--line);
 }
+@media (max-width:899px){
+  header{position:fixed; top:0; left:0; right:0; width:100%;}
+  body{padding-top:73px;}
+}
 .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
 .brand-mark{
@@ -154,8 +158,11 @@ header{
 .nav-toggle.open .bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .nav-toggle.open .bar:nth-child(2){opacity:0;}
 .nav-toggle.open .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{display:none; flex-direction:column; gap:2px; padding:8px 0 18px; border-top:1px solid var(--line);}
+.mobile-menu{display:none; flex-direction:column; gap:2px; padding:8px 0 18px; border-top:1px solid var(--line); background:var(--wheat);}
 .mobile-menu.open{display:flex;}
+@media (max-width:899px){
+  .mobile-menu{position:absolute; top:100%; left:0; right:0; max-height:calc(100vh - 73px); overflow-y:auto;}
+}
 .mobile-menu a{
   text-decoration:none; padding:12px 4px; font-family:var(--font-display); text-transform:uppercase; font-size:15px; font-weight:500; border-bottom:1px solid var(--line);
 }
