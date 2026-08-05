@@ -332,7 +332,7 @@
             <iframe title="Map of Council Grove, Kansas service area" loading="lazy" src="https://www.google.com/maps?q=Council+Grove,+KS&output=embed"></iframe>
           </div>
         </div>
-        <form class="form" aria-label="Quote request form">
+        <form class="form" aria-label="Quote request form" action="https://formspree.io/f/xrpzzwlq" method="POST" id="quoteForm">
           <div class="form-row">
             <div><label for="name">Name</label><input id="name" name="name" type="text" required></div>
             <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required></div>
@@ -343,7 +343,9 @@
             <div><label for="model">Model / year</label><input id="model" name="model" type="text" placeholder="e.g. WD-45, 1955"></div>
           </div>
           <div><label for="details">What's going on?</label><textarea id="details" name="details" rows="4" required></textarea></div>
+          <input type="hidden" name="_subject" value="New quote request — Day Tractor Repair website">
           <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Request a quote</button>
+          <p id="quoteFormStatus" role="status" style="font-size:14px; color:var(--iron-2); display:none;"></p>
         </form>
       </div>
     </div>
