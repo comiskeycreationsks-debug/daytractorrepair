@@ -43,6 +43,9 @@ h1,h2,h3,h4{
 }
 p{margin:0;}
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+@media (max-width:640px){
+  .wrap{padding:0 32px;}
+}
 .eyebrow{
   font-family:var(--font-mono);
   font-size:12px;
