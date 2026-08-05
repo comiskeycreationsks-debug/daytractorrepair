@@ -36,8 +36,44 @@ if ('IntersectionObserver' in window) {
   revealEls.forEach(el => el.classList.add('show'));
 }
 
-// Demo form submit (no backend attached)
+// Quote form — submits to Formspree via fetch, no page reload
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+  const statusEl = document.getElementById('quoteFormStatus');
+  quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = quoteForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.style.display = 'block';
+    statusEl.textContent = '';
+    try {
+      const res = await fetch(quoteForm.action, {
+        method: 'POST',
+        body: new FormData(quoteForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        statusEl.textContent = 'Thanks — your quote request has been sent. We\'ll be in touch soon.';
+        statusEl.style.color = 'var(--field)';
+        quoteForm.reset();
+      } else {
+        statusEl.textContent = 'Something went wrong sending that. Please call or email us directly.';
+        statusEl.style.color = 'var(--usa-red, #b22234)';
+      }
+    } catch (err) {
+      statusEl.textContent = 'Something went wrong sending that. Please call or email us directly.';
+      statusEl.style.color = 'var(--usa-red, #b22234)';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request a quote';
+    }
+  });
+}
+
+// Other forms (e.g. email signup) — still a demo until a backend is connected
 document.querySelectorAll('form').forEach(f => {
+  if (f.id === 'quoteForm') return;
   f.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('This is a demo form — connect it to an email service or backend to go live.');
