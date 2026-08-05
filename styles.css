@@ -125,19 +125,18 @@ p{margin:0;}
 
 /* Nav */
 header{
-  position:sticky; top:0; z-index:50;
+  position:fixed; top:0; left:0; right:0; width:100%; z-index:50;
   background:var(--wheat);
   border-bottom:1px solid var(--line);
 }
+body{padding-top:74px;}
 @media (max-width:899px){
-  header{position:fixed; top:0; left:0; right:0; width:100%;}
   body{padding-top:73px;}
 }
 .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
 .brand-mark{
-  width:48px; height:48px;
-  object-fit:contain;
+  height:48px; width:auto;
   flex-shrink:0;
 }
 .brand-name{font-family:var(--font-display); font-weight:700; font-size:17px; letter-spacing:0.02em; color:var(--iron);}
