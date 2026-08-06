@@ -19,6 +19,7 @@
 *{box-sizing:border-box;}
 .icon{
   width:1em; height:1em;
+  max-width:1em; max-height:1em;
   fill:currentColor;
   stroke:none;
   display:inline-block;
